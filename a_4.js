@@ -13,7 +13,6 @@ function solution(lottos, win_nums) {
   };
   const hiden = lottos.filter((n) => [0].includes(n)).length;
   const min = lottos.reduce((a, c) => (win_nums.includes(c) ? (a += 1) : a), 0);
-  log(min);
 
   return hiden === 6 ? [1, 6] : [condition[hiden + min], condition[min]];
 }
