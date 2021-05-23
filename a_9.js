@@ -1,27 +1,6 @@
 const { log } = console;
 
 // 문자열 압축
-// function solution(s) {
-//   let c = 0;
-//   let en = "";
-//   let t = s.slice(0, 1);
-//   for (let i = 0; i < s.length; i++) {
-//     if (s.slice(i, i + 1) === t) {
-//       c++;
-//       if (i === s.length - 1) {
-//         log(t);
-//         en += `${c}${t}`;
-//       }
-//     } else if (s.slice(i, i + 1) !== t) {
-//       en += c === 1 ? `${t}` : `${c}${t}`;
-//       t = s.slice(i, i + 1);
-//       log(t);
-//       c = 1;
-//     }
-//   }
-
-//   return en;
-// }
 function solution(s) {
   if (s.length === 1) return 1;
   let arr = [];
