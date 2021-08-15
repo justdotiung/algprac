@@ -1,19 +1,17 @@
 const { log } = console;
 
-//카펫
-function solution(brown, yellow) {
-  const l = Math.floor(Math.sqrt(yellow));
-  for (let i = 1; i <= l; i++) {
-    if (yellow % i === 0) {
-      if (i * 2 + (yellow / i) * 2 + 4 === brown) {
-        return [
-          Math.max(i + 2, yellow / i + 2),
-          Math.min(i + 2, yellow / i + 2),
-        ];
-      }
-    }
+//소수찾기
+function solution(numbers) {
+  let arr = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === "0") continue;
+    arr.push(numbers[i]);
+    recur(arr, numbers.slice[i]);
   }
+  var answer = 0;
+  return answer;
 }
+
 
 log(solution(10, 2));
 log(solution(8, 1));
