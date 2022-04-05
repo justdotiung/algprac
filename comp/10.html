@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str, m){
+                const regExp = new RegExp(m, "g");
+                return str.match(regExp).length;
+            }
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+        <script>
+            function solution2(str, m){
+                let n = 0;
+                for( const x of str) {
+                    if(x ===m) n++;                
+                }
+
+                return n;
+            }
+            str="COMPUTERPROGRAMMING";
+            console.log(solution2(str, 'R'));
+        </script>
+    </body>
+</html>0

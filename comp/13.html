@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                let a = "";
+                for( const t of str) {
+                   a += t.toUpperCase() === t ? t.toLowerCase() : t.toUpperCase();
+                }
+                return a;
+            }
+            console.log(solution("StuDY"));
+        </script>
+    </body>
+</html>0

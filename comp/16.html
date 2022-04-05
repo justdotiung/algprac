@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+               let an = ""
+                for(const s of str) {
+                   if(!an.includes(s)) an += s;
+               }
+
+               return an;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>0
