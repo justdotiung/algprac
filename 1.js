@@ -1,59 +1,40 @@
 function solution(arr) {
-  let a;
-  let t = Array(12).fill(0);
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if (i === 0) {
-        t[0] += arr[i][j];
-      } else if (i === 1) {
-        t[1] += arr[i][j];
-      } else if (i === 2) {
-        t[2] += arr[i][j];
-      } else if (i === 3) {
-        t[3] += arr[i][j];
-      } else if (i === 4) {
-        t[4] += arr[i][j];
-      }
-      if (j === 0) {
-        t[5] += arr[i][j];
-      } else if (j === 1) {
-        t[6] += arr[i][j];
-      } else if (j === 2) {
-        t[7] += arr[i][j];
-      } else if (j === 3) {
-        t[8] += arr[i][j];
-      } else if (j === 4) {
-        t[9] += arr[i][j];
-      }
-      if (i === j) {
-        if (i < 2) {
-          if (j < 2) {
-            t[10] += arr[i][j];
-          } else {
-            t[11] += arr[i][j];
-          }
-        } else if (i > 2) {
-          if (j < 2) {
-            t[10] += arr[i][j];
-          } else {
-            t[11] += arr[i][j];
-          }
-        } else {
-          t[10] += arr[i][j];
-          t[11] += arr[i][j];
+  const dx = [0, 1, 0, -1];
+  const dy = [1, 0, -1, 0];
+  let m = 0,
+    flag = true;
+  n = arr.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      flag = true;
+      for (let k = 0; k < 4; k++) {
+        const nx = i + dy[k];
+        const ny = j + dx[k];
+        if (
+          nx >= 0 &&
+          nx < n &&
+          ny >= 0 &&
+          ny < n &&
+          arr[i][j] <= arr[nx][ny]
+        ) {
+          flag = false;
+          break;
         }
+      }
+      if (flag) {
+        m++;
       }
     }
   }
 
-  return t;
+  return m;
 }
 
 let arr = [
-  [10, 13, 10, 12, 15],
-  [12, 39, 30, 23, 11],
-  [11, 25, 50, 53, 15],
-  [19, 27, 29, 37, 27],
-  [19, 13, 30, 13, 19],
+  [2, 3, 2, 2, 3],
+  [3, 2, 1, 6, 1],
+  [7, 2, 5, 3, 4],
+  [4, 3, 6, 4, 1],
+  [8, 7, 3, 5, 2],
 ];
 console.log(solution(arr));
