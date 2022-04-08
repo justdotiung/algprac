@@ -1,20 +1,9 @@
-function solution(arr) {
-  let a = arr[0];
-  let answer = [arr[0]];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > arr[i - 1]) answer.push(arr[i]);
-    // if (!a) {
-    //   a = arr[i];
-    //   answer.push(a);
-    //   continue;
-    // }
-    // if (a < arr[i]) {
-    //   a = null;
-    //   answer.push(arr[i]);
-    // }
-  }
-  return answer;
+function solution(str) {
+  const b =
+    str.toLowerCase() === str.split("").reverse().join("").toLowerCase();
+
+  return b ? "YES" : "NO";
 }
 
-let arr = [7, 3, 9, 5, 6, 12];
-console.log(solution(arr));
+let str = "found7, time: study; Yduts; emit, 7Dnuof";
+console.log(solution(str));

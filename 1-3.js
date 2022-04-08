@@ -1,15 +1,26 @@
-function solution(arr) {
-  let answer = 0;
-  let s = 1;
-  for (const a of arr) {
-    if (a === 1) {
-      answer += s;
-      s++;
-    } else s = 1;
+function solution(str) {
+  const a = "100000000";
+
+  console.log(a.length);
+  let aa = str.replace(/[^0-9]/g, "").replace(/^0+/g, "");
+
+  if (aa.length > a.length) {
+    aa = aa.split("");
+    for (let i = 0; i < aa.length - a.length; i++) {
+      aa.shift();
+    }
+
+    aa = aa.join("").replace(/^0+/g, "");
   }
 
-  return answer;
+  if (parseInt(aa) > parseInt(a)) {
+    aa = aa.split("");
+    aa.shift();
+    aa = aa.join("").replace(/^0+/g, "");
+  }
+
+  return parseInt(aa);
 }
 
-let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
-console.log(solution(arr));
+let str = "310000g0en2T0s8eSoft";
+console.log(solution(str));

@@ -1,24 +1,25 @@
-function solution(a, b) {
-  const WINNER = {
-    11: "D",
-    12: "B",
-    13: "A",
-    21: "A",
-    22: "D",
-    23: "B",
-    31: "B",
-    32: "A",
-    33: "D",
-  };
+function solution(str) {
+  const t = str.toLowerCase().replace(/[^a-z]/g, "");
+  console.log(t);
+  return t.split("").reverse().join("") === t ? "YES" : "NO";
+  const arr = str.split(" ");
 
-  let answer = [];
-  for (let i = 0; i < a.length; i++) {
-    answer.push(WINNER[a[i] + "" + b[i]]);
+  for (let i = 0; i < arr.length / 2; i++) {
+    if (
+      arr[i].replace(/[^a-zA-Z]/g, "").toLowerCase() !==
+      arr[arr.length - i - 1]
+        .replace(/[^a-zA-Z]/g, "")
+        .split("")
+        .reverse()
+        .join("")
+        .toLowerCase()
+    ) {
+      console.log(arr[i].replace(/[^a-zA-Z]/g, "").toLowerCase());
+      return "NO";
+    }
   }
-
-  return answer;
+  return "YES";
 }
 
-let a = [2, 3, 3, 1, 3];
-let b = [1, 1, 2, 2, 3];
-console.log(solution(a, b));
+let str = "found7, time: study; Yduts; emit, 7Dnuof";
+console.log(solution(str));
