@@ -1,26 +1,23 @@
-function solution(str) {
-  const a = "100000000";
-
-  console.log(a.length);
-  let aa = str.replace(/[^0-9]/g, "").replace(/^0+/g, "");
-
-  if (aa.length > a.length) {
-    aa = aa.split("");
-    for (let i = 0; i < aa.length - a.length; i++) {
-      aa.shift();
+function solution(arr) {
+  const answer = [];
+  let b,
+    isPrime = false;
+  for (let i = 0; i < arr.length; i++) {
+    b = arr[i].toString().split("").reverse().join("");
+    b = parseInt(b);
+    if (b === 1) continue;
+    for (let j = 2; j * j < b; j++) {
+      if (b % j === 0) {
+        isPrime = true;
+        break;
+      }
     }
-
-    aa = aa.join("").replace(/^0+/g, "");
+    if (!isPrime) answer.push(b);
+    isPrime = false;
   }
 
-  if (parseInt(aa) > parseInt(a)) {
-    aa = aa.split("");
-    aa.shift();
-    aa = aa.join("").replace(/^0+/g, "");
-  }
-
-  return parseInt(aa);
+  return answer;
 }
 
-let str = "teachermode";
-console.log(solution(str, "e"));
+let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+console.log(solution(arr));
