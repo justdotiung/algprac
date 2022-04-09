@@ -1,23 +1,18 @@
-function solution(arr) {
-  const answer = [];
-  let b,
-    isPrime = false;
+function solution(l, k, arr) {
+  const answer = 0;
+  const c = new Set();
+  // const c = [];
   for (let i = 0; i < arr.length; i++) {
-    b = arr[i].toString().split("").reverse().join("");
-    b = parseInt(b);
-    if (b === 1) continue;
-    for (let j = 2; j * j < b; j++) {
-      if (b % j === 0) {
-        isPrime = true;
-        break;
+    for (let k = i + 1; k < arr.length; k++) {
+      for (let j = k + 1; j < arr.length; j++) {
+        let a = arr[i] + arr[k] + arr[j];
+        c.add(a);
+        // if (!c.includes(a)) c.push(a);
       }
     }
-    if (!isPrime) answer.push(b);
-    isPrime = false;
   }
-
-  return answer;
+  return [...c].sort((a, b) => b - a)[k - 1];
 }
 
-let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
-console.log(solution(arr));
+let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+console.log(solution(10, 3, arr));
