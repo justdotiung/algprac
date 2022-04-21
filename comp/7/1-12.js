@@ -19,7 +19,7 @@ function solution(h, arr) {
     const mid = parseInt((lt+rt) / 2);
     if(count(mid, arr) >= h) {
       answer = mid;
-      lt += 1;
+      lt = mid+1;
     }else
      rt = mid-1;
   }
