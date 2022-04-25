@@ -1,17 +1,17 @@
-function solution(n, f, arr, m) {
+function solution(n, f) {
   const ch = Array.from({ length: n }, () => 0);
-  let answer = 0;
+  const answer = [];
   function dfs(l, c) {
     if (c > f) return;
     if (l === n) {
       if (c < f) return;
-      let t = 0;
+      let t = [];
       for (let i = 0; i < ch.length; i++) {
         if (ch[i] === 1) {
-          t += arr[i];
+          t.push(i + 1);
         }
       }
-      if (t % m === 0) answer++;
+      answer.push(t);
       return;
     }
 
@@ -21,8 +21,8 @@ function solution(n, f, arr, m) {
     dfs(l + 1, c);
   }
   dfs(0, 0);
+  answer.push(answer.length);
   return answer;
 }
 
-let arr = [2, 4, 5, 8, 12];
-console.log(solution(5, 3, arr, 6));
+console.log(solution(6, 4));
